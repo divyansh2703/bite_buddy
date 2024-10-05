@@ -1,0 +1,152 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good evening
+    - hey there
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - have a nice day
+    - catch you later
+
+- intent: place_order
+  examples: |
+    - I want to order [2](quantity) [pizzas](dish_name)
+    - Can I get [3](quantity) [burgers](dish_name)?
+    - I'd like to order [1](quantity) [sushi](dish_name)
+    - I need [5](quantity) [tacos](dish_name)
+    - Please send me [2](quantity) [pastas](dish_name)
+    - I'll have [4](quantity) [salads](dish_name)
+    - Order [1](quantity) [pizza](dish_name) with extra cheese
+    - Can you get me [2](quantity) [pizzas](dish_name) delivered by 8 PM?
+    - I want [3](quantity) [burgers](dish_name) with no onions
+    - Give me [6](quantity) [fries](dish_name) and [2](quantity) [sodas](dish_name)
+    - I need [2](quantity) [tacos](dish_name) and [1](quantity) [burrito](dish_name)
+    - I'd like to place an order for [2](quantity) [pizzas](dish_name) and [1](quantity) [lasagna](dish_name)
+    - Send me [5](quantity) [pastas](dish_name), make it gluten-free
+    - Order [1](quantity) [pizza](dish_name) for me, extra spicy
+    - Can I order [3](quantity) [sushi](dish_name) for lunch?
+    - I'll take [2](quantity) [sandwiches](dish_name) and a [coffee](dish_name)
+    - I'd like to order [2](quantity) [pizzas](dish_name) and [3](quantity) [burgers](dish_name)
+    - Can I have [4](quantity) [samosas](dish_name) and a [tea](dish_name)?
+
+
+- intent: track_order
+  examples: |
+    - Track my order [12345](order_id)
+    - Where is my order [67890](order_id)?
+    - Can you check the status of order [54321](order_id)?
+    - I want to track my order [98765](order_id)
+    - What's the status of my order [45678](order_id)?
+
+- intent: ask_offer
+  examples: |
+    - What are the current offers?
+    - Do you have any discounts?
+    - Are there any deals today?
+    - Tell me about the promotions
+    - What discounts are available?
+
+- intent: thank_you
+  examples: |
+    - thanks
+    - thank you
+    - I appreciate it
+    - thanks a lot
+    - thank you very much
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - that's correct
+    - of course
+    - sure
+
+- intent: deny
+  examples: |
+    - no
+    - not at all
+    - nope
+    - no way
+    - I don't think so
+
+- intent: change_order
+  examples: |
+      - I want to change my order
+      - Can I modify my order?
+      - I need to update my order
+      - I want to add something to my order
+
+- intent: cancel
+  examples: |
+      - cancel the order
+      - I changed my mind
+      - cancel my order
+
+        - intent: inquire_dish
+
+  # Modification and Feedback Intents
+- intent: modify_order
+  examples: |
+      - I want to modify my order
+      - Can I update my order?
+      - I want to add or remove something
+
+- intent: provide_modifications
+  examples: |
+      - Add extra cheese
+      - Remove onions
+      - Add a coke
+
+- intent: provide_incomplete_info
+  examples: |
+      - I want to add something
+      - Just change it
+      - Add more stuff
+
+- intent: provide_feedback
+  examples: |
+      - The food was great!
+      - I loved the service
+      - The food was terrible
+      - It took too long
+
+  # Cancellation Intents
+- intent: cancel_order
+  examples: |
+      - I want to cancel my order
+      - Cancel the order I just placed
+      - Can I cancel my order?
+
+  # Questions and Edge Cases
+- intent: ask_delivery_time
+  examples: |
+      - How long will it take to deliver?
+      - When will my order arrive?
+      - Delivery time?
+
+- intent: ask_payment_methods
+  examples: |
+      - What payment methods do you accept?
+      - How can I pay?
+      - Do you accept credit cards?
+
+- intent: irrelevant_question
+  examples: |
+      - Tell me a joke
+      - Do you like pizza?
+
+- intent: change_mind
+  examples: |
+      - I changed my mind
+      - Never mind

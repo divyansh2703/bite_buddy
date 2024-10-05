@@ -1,0 +1,41 @@
+version: "2.0"
+stories:
+  - story: User places an order
+    steps:
+      - intent: place_order
+      - action: place_order_form
+      - active_loop: place_order_form
+      - active_loop: null
+      - action: action_place_order
+      - action: utter_order_placed
+
+  - story: User wants to modify an order
+    steps:
+      - intent: change_order
+      - action: utter_ask_modifications
+      - intent: provide_modifications
+      - action: action_modify_order
+      - action: utter_order_modified
+
+  - story: User wants to cancel an order
+    steps:
+      - intent: cancel_order
+      - action: utter_confirm_cancellation
+      - intent: confirm_cancellation
+      - action: action_cancel_order
+      - action: utter_order_cancelled
+
+  - story: User denies order cancellation
+    steps:
+      - intent: cancel_order
+      - action: utter_confirm_cancellation
+      - intent: deny
+      - action: utter_order_not_cancelled
+
+  - story: User provides incomplete modification info
+    steps:
+      - intent: provide_incomplete_info
+      - action: utter_ask_for_complete_info
+      - intent: provide_modifications
+      - action: action_modify_order
+      - action: utter_order_modified

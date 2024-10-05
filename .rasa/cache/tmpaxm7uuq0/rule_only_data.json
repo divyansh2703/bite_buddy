@@ -1,0 +1,8 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "place_order_form",
+    "track_order_form",
+    "action_modify_order"
+  ]
+}

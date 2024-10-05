@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-dish_name",
+      "2": "I-dish_name",
+      "3": "L-dish_name",
+      "4": "U-dish_name",
+      "5": "B-order_id",
+      "6": "I-order_id",
+      "7": "L-order_id",
+      "8": "U-order_id",
+      "9": "B-quantity",
+      "10": "I-quantity",
+      "11": "L-quantity",
+      "12": "U-quantity",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-dish_name": 1,
+      "I-dish_name": 2,
+      "L-dish_name": 3,
+      "U-dish_name": 4,
+      "B-order_id": 5,
+      "I-order_id": 6,
+      "L-order_id": 7,
+      "U-order_id": 8,
+      "B-quantity": 9,
+      "I-quantity": 10,
+      "L-quantity": 11,
+      "U-quantity": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

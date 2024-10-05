@@ -1,0 +1,101 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - place_order
+  - track_order
+  - ask_offer
+  - change_order
+  - cancel_order
+  - confirm_cancellation
+  - deny
+  - provide_modifications
+  - provide_incomplete_info
+  - provide_feedback
+  - ask_delivery_time
+  - ask_payment_methods
+  - irrelevant_question
+  - change_mind
+  - provide_incorrect_order_id
+
+entities:
+  - order_id
+  - dish
+  - modification
+  - quantity
+  - dish_name
+
+slots:
+  order_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: order_id
+      - type: from_text
+  dish:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: dish
+      - type: from_text
+  modification:
+    type: text
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+  utter_order_placed:
+    - text: "Your order has been placed successfully!"
+  utter_order_status:
+    - text: "Here is the status of your order: {order_status}"
+  utter_offers:
+    - text: "We have some great offers for you today!"
+  utter_ask_modifications:
+    - text: "What modifications would you like to make?"
+  utter_order_modified:
+    - text: "Your order has been modified successfully!"
+  utter_confirm_cancellation:
+    - text: "Are you sure you want to cancel your order?"
+  utter_order_cancelled:
+    - text: "Your order has been cancelled."
+  utter_order_not_cancelled:
+    - text: "Your order has not been cancelled."
+  utter_invalid_order_id:
+    - text: "The order ID you provided is invalid. Please provide a correct order ID."
+  utter_thank_you_feedback:
+    - text: "Thank you for your feedback!"
+  utter_apologize_feedback:
+    - text: "We're sorry to hear that. We'll work on improving our service."
+  utter_payment_methods:
+    - text: "We accept various payment methods including credit cards and online payments."
+  utter_irrelevant_question_response:
+    - text: "I'm not sure about that. Can I help you with something else?"
+
+forms:
+  place_order_form:
+    required_slots:
+      - dish
+      - modification
+  track_order_form:
+    required_slots:
+      - order_id
+
+actions:
+  - action_place_order
+  - action_track_order
+  - action_ask_offer
+  - action_modify_order
+  - action_cancel_order
+  - action_check_delivery_time
+  - action_check_payment_methods
+  - utter_order_canceled
+  - utter_ask_for_complete_info
+
+session_config:
+  session_expiration_time: 60  # in minutes
+  carry_over_slots_to_new_session: true
