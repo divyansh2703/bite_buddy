@@ -1,4 +1,5 @@
 version: "2.0"
+
 stories:
   - story: User places an order
     steps:
@@ -9,7 +10,7 @@ stories:
       - action: action_place_order
       - action: utter_order_placed
 
-  - story: User wants to modify an order
+  - story: User modifies an order
     steps:
       - intent: change_order
       - action: utter_ask_modifications
@@ -17,25 +18,64 @@ stories:
       - action: action_modify_order
       - action: utter_order_modified
 
-  - story: User wants to cancel an order
+  - story: User cancels an order with confirmation
     steps:
       - intent: cancel_order
-      - action: utter_confirm_cancellation
-      - intent: confirm_cancellation
+      - action: action_ask_confirm_cancellation
+      - intent: affirm
       - action: action_cancel_order
       - action: utter_order_cancelled
 
   - story: User denies order cancellation
     steps:
       - intent: cancel_order
-      - action: utter_confirm_cancellation
+      - action: action_ask_confirm_cancellation
       - intent: deny
       - action: utter_order_not_cancelled
 
   - story: User provides incomplete modification info
     steps:
+      - intent: change_order
+      - action: utter_ask_modifications
       - intent: provide_incomplete_info
       - action: utter_ask_for_complete_info
       - intent: provide_modifications
       - action: action_modify_order
       - action: utter_order_modified
+
+  - story: User checks order status
+    steps:
+      - intent: track_order
+      - action: track_order_form
+      - active_loop: track_order_form
+      - active_loop: null
+      - action: action_track_order
+      - action: utter_order_status
+
+  - story: User checks offers
+    steps:
+      - intent: ask_offer
+      - action: action_ask_offer
+      - action: utter_offers
+
+  - story: User asks delivery time
+    steps:
+      - intent: ask_delivery_time
+      - action: action_check_delivery_time
+
+  - story: User asks payment methods
+    steps:
+      - intent: ask_payment_methods
+      - action: utter_payment_methods
+
+  - story: User provides feedback
+    steps:
+      - intent: provide_feedback
+      - action: utter_thank_you_feedback
+
+  - story: User provides incomplete modification info
+    steps:
+      - intent: change_order
+      - action: utter_ask_modifications
+      - intent: provide_incomplete_info
+      - action: utter_ask_for_complete_info

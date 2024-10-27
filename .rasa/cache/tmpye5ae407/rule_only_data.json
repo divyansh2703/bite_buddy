@@ -1,0 +1,7 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "action_modify_order",
+    "place_order_form"
+  ]
+}
