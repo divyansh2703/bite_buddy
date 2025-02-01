@@ -89,9 +89,11 @@ nlu:
 
 - intent: cancel
   examples: |
-    - I want to cancel my order
-    - Cancel my order
+      - cancel the order
+      - I changed my mind
+      - cancel my order
 
+        - intent: inquire_dish
 
   # Modification and Feedback Intents
 - intent: modify_order

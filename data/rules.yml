@@ -1,5 +1,6 @@
 version: "2.0"
 rules:
+  # Simple Rules
   - rule: Greet the user
     steps:
       - intent: greet
@@ -10,7 +11,7 @@ rules:
       - intent: goodbye
       - action: utter_goodbye
 
-  - rule: User asks for offers
+  - rule: Ask for offers
     steps:
       - intent: ask_offer
       - action: action_ask_offer
@@ -25,20 +26,20 @@ rules:
       - action: action_track_order
       - action: utter_order_status
 
-  - rule: Order placement confirmation
+  - rule: Handle incorrect order ID
+    condition:
+      - active_loop: track_order_form
+    steps:
+      - intent: provide_incorrect_order_id
+      - action: utter_invalid_order_id
+      - active_loop: track_order_form
+
+  - rule: order placement
     condition:
       - active_loop: place_order_form
     steps:
       - intent: place_order
       - action: utter_order_placed
-      - active_loop: null
-
-  - rule: User changes mind during modification
-    condition:
-      - active_loop: action_modify_order
-    steps:
-      - intent: change_mind
-      - action: utter_ask_modifications
       - active_loop: null
 
   - rule: Handle feedback
@@ -60,3 +61,17 @@ rules:
     steps:
       - intent: ask_payment_methods
       - action: utter_payment_methods
+
+  - rule: User changes mind during order
+    condition:
+      - active_loop: action_modify_order
+    steps:
+      - intent: change_mind
+      - action: utter_ask_modifications
+      - active_loop: null
+
+  - rule: User asks cancellation
+    steps:
+      - intent: cancel
+      - action: utter_confirm_cancellation
+

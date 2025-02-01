@@ -4,21 +4,20 @@ intents:
   - greet
   - goodbye
   - place_order
+  - track_order
+  - ask_offer
   - change_order
   - cancel_order
   - confirm_cancellation
   - deny
   - provide_modifications
   - provide_incomplete_info
-  - track_order
-  - ask_offer
   - provide_feedback
   - ask_delivery_time
   - ask_payment_methods
   - irrelevant_question
   - change_mind
   - provide_incorrect_order_id
-  - affirm
 
 entities:
   - order_id
@@ -70,12 +69,12 @@ responses:
     - text: "The order ID you provided is invalid. Please provide a correct order ID."
   utter_thank_you_feedback:
     - text: "Thank you for your feedback!"
+  utter_apologize_feedback:
+    - text: "We're sorry to hear that. We'll work on improving our service."
   utter_payment_methods:
-    - text: "We accept credit cards, online payments, and cash on delivery."
+    - text: "We accept various payment methods including credit cards and online payments."
   utter_irrelevant_question_response:
     - text: "I'm not sure about that. Can I help you with something else?"
-  utter_ask_for_complete_info:
-    - text: "Could you provide more specific details for your modification?"
 
 forms:
   place_order_form:
@@ -87,19 +86,6 @@ forms:
       - order_id
 
 actions:
-  - action_ask_confirm_cancellation  # Add this line if it's not present
-  - action_listen
-  - action_restart
-  - action_session_start
-  - action_default_fallback
-  - action_deactivate_loop
-  - action_revert_fallback_events
-  - action_default_ask_affirmation
-  - action_default_ask_rephrase
-  - action_two_stage_fallback
-  - action_unlikely_intent
-  - action_back
-  - action_extract_slots
   - action_place_order
   - action_track_order
   - action_ask_offer
@@ -107,23 +93,8 @@ actions:
   - action_cancel_order
   - action_check_delivery_time
   - action_check_payment_methods
-  - utter_order_cancelled
+  - utter_order_canceled
   - utter_ask_for_complete_info
-  - utter_ask_modifications
-  - utter_confirm_cancellation
-  - utter_goodbye
-  - utter_greet
-  - utter_invalid_order_id
-  - utter_irrelevant_question_response
-  - utter_offers
-  - utter_order_modified
-  - utter_order_not_cancelled
-  - utter_order_placed
-  - utter_order_status
-  - utter_payment_methods
-  - utter_thank_you_feedback
-  - place_order_form
-  - track_order_form
 
 session_config:
   session_expiration_time: 60  # in minutes
